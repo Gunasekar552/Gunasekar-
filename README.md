@@ -1,5 +1,5 @@
 # Gunasekar-
 
-THIS IS PYTHON TOOL WHICH MAKES HACKERS SCAN PORTS AND HACK 
+This is a python tool for scaning ports and scan targets provided by the user.
 
 
