@@ -37,13 +37,25 @@ void fetchHTTPHeaders(const char *url) {
     executeCommand(command);
 }
 
+void niktoScan(const char *host) {
+    char command[100];
+    sprintf(command, "nikto -h %s", host);
+    executeCommand(command);
+}
+
+void sqlmapScan(const char *url) {
+    char command[100];
+    sprintf(command, "sqlmap -u %s --dbs", url);
+    executeCommand(command);
+}
+
 int main() {
     char host[50];
     printf("Enter IP address or domain name: ");
     scanf("%s", host);
 
     int choice;
-    printf("Choose operation:\n1. Ping\n2. Scan Ports\n3. Traceroute\n4. Fetch HTTP Headers\n");
+    printf("Choose operation:\n1. Ping\n2. Scan Ports\n3. Traceroute\n4. Fetch HTTP Headers\n5. Nikto Scan\n6. SQLMap Scan\n");
     scanf("%d", &choice);
 
     switch (choice) {
@@ -68,6 +80,16 @@ int main() {
             printf("Enter URL for HTTP headers: ");
             scanf("%s", url);
             fetchHTTPHeaders(url);
+            break;
+        }
+        case 5:
+            niktoScan(host);
+            break;
+        case 6: {
+            char url[100];
+            printf("Enter URL for SQLMap: ");
+            scanf("%s", url);
+            sqlmapScan(url);
             break;
         }
         default:
