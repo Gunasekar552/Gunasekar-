@@ -19,7 +19,7 @@ void generate_passwords(char characters[], int length, char filename[]) {
         fprintf(file, "%s\n", password);
         printf("%s\n", password);
 
-        // Increment the password for the next iteration
+        
         for (int i = length - 1; i >= 0; --i) {
             if (password[i] != characters[strlen(characters) - 1]) {
                 int j;
